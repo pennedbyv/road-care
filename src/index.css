@@ -178,7 +178,7 @@
   }
 
   .data-table thead {
-    @apply bg-white/2 border-b border-white/5;
+    @apply bg-white/5 border-b border-white/5;
   }
 
   .data-table th {
@@ -190,7 +190,7 @@
   }
 
   .data-table tr:hover {
-    @apply bg-white/2;
+    @apply bg-white/5;
   }
 
   /* Custom scrollbar */
