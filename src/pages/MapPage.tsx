@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { DamageType } from "@/types/dashboard";
 import { Layers, MapPin, Satellite } from "lucide-react";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 const MapPage = () => {
   const [selectedType, setSelectedType] = useState<DamageType | "all">("all");
@@ -63,7 +64,15 @@ const MapPage = () => {
 
         {/* Map */}
         <div className="rounded-xl border border-white/5 overflow-hidden">
-          <SolapurMap complaints={mockComplaints} selectedType={selectedType} />
+          <ErrorBoundary
+            fallback={
+              <div className="p-6 text-sm text-muted-foreground">
+                Map is temporarily unavailable.
+              </div>
+            }
+          >
+            <SolapurMap complaints={mockComplaints} selectedType={selectedType} />
+          </ErrorBoundary>
         </div>
 
         {/* Map Legend */}
