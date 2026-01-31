@@ -16,6 +16,7 @@ import { MonthlyTrendChart, DamageTypeChart } from "@/components/dashboard/Analy
 import { mockComplaints, mockAnalytics } from "@/data/mockData";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 const Index = () => {
   const stats = [
@@ -130,7 +131,15 @@ const Index = () => {
                   </Badge>
                 </div>
               </div>
-              <SolapurMap complaints={mockComplaints} />
+              <ErrorBoundary
+                fallback={
+                  <div className="p-6 text-sm text-muted-foreground">
+                    Map is temporarily unavailable.
+                  </div>
+                }
+              >
+                <SolapurMap complaints={mockComplaints} />
+              </ErrorBoundary>
             </div>
           </div>
 

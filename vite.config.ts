@@ -13,6 +13,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  optimizeDeps: {
+    // Ensure Vite re-bundles the correct (React 18 compatible) Leaflet stack
+    include: ["leaflet", "react-leaflet", "@react-leaflet/core"],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
