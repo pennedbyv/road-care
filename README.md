@@ -45,7 +45,4 @@ Authorities get:
 - 📊 Data insights for planning repairs  
 - 📱 Designed for basic smartphones & low data usage  
 
----
-
-## 🏗️ Project Structure
 
